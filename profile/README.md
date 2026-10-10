@@ -1,22 +1,31 @@
+**English** | [简体中文](README.zh-CN.md)
+
 # PlugX
 
-**Cordis 思想的跨框架 UI 插件平台 —— 项目是插线板，功能是插头，什么框架写的插头都能插。**
+**A Cordis-inspired cross-framework UI plugin platform — the app is a power strip, features are plugs, and a plug written in any framework fits.**
 
-A Cordis-inspired cross-framework UI plugin platform: service container, typed events (emit / waterfall / bail / parallel / serial), and reversible side effects — letting React, Vue and vanilla components coexist in one app through stable contracts.
+Service container, typed events (emit / waterfall / bail / parallel / serial), and reversible side effects — letting React, Vue and vanilla components coexist in one app through stable contracts.
 
-## 核心理念
+```mermaid
+flowchart LR
+    P1["React plugin"] & P2["Vue plugin"] & P3["HTML plugin"] --> C["core · Context<br/>services · events · slots"]
+    C --> D["adapters<br/>react / vue"]
+    D --> S["Shell apps"]
+```
 
-- **插件即功能**：新增功能 = 新增一个插件文件，不碰存量代码
-- **跨框架**：React / Vue / 原生组件通过渲染器适配器共存，组件间只走事件总线
-- **契约为王**：服务、事件、插槽全部登记在案，AI 与人按同一份契约协作
-- **图纸驱动**（P2 进行中）：页面由 JSON 图纸装配，为低代码设计器铺路
+## Principles
 
-## 仓库
+- **Everything is a plugin**: a new feature = a new plugin file, zero edits to existing code
+- **Cross-framework**: React / Vue / vanilla components coexist via renderer adapters, talking only through the event bus
+- **Contracts rule**: services, events and slots are all registered; humans and AI collaborate against the same registry
+- **Blueprint-driven** (P2 in progress): pages assembled from JSON blueprints, paving the way for a low-code designer
 
-| 仓库 | 说明 |
+## Repositories
+
+| Repo | Description |
 |---|---|
-| [plugx](https://github.com/plugx-io/plugx) | 主仓库：内核、框架适配器、Schema、验证场、文档 |
+| [plugx](https://github.com/plugx-io/plugx) | Main repo: kernel, framework adapters, schema, playground, docs |
 
-## 状态
+## Status
 
-🚧 P1 阶段（插件化内核）已完成，P2（图纸驱动）进行中。欢迎围观，暂不接受 PR。
+🚧 P1 (plugin runtime kernel) done, P2 (blueprint-driven) in progress. Watching welcome; PRs not accepted yet.
